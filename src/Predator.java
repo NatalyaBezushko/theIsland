@@ -3,8 +3,14 @@ import java.util.Random;
 
 public abstract class Predator extends Animal{
 
-    public Predator(AnimalProperties properties) {
-        super(properties);
+    private static final Object Animal = 0;
+
+    public Predator(Cell properties) {
+        super((AnimalProperties) Animal);
+    }
+
+    public Predator() {
+        super();
     }
 
     @Override

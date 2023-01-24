@@ -1,8 +1,10 @@
 import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Animal implements Runnable, Eatable {
 
+    
     private AnimalProperties properties;
 
     private static final int MOVE_DISTANCE = 3;
@@ -17,6 +19,7 @@ public abstract class Animal implements Runnable, Eatable {
     private UUID id;
     private Island island;
     private Cell position;
+    private AtomicInteger movesCount;
 
     public Animal(AnimalProperties properties, Island island) {
         this.properties = properties;
@@ -31,6 +34,10 @@ public abstract class Animal implements Runnable, Eatable {
     }
 
     public Animal(AnimalProperties stomachCapacity) {
+    }
+
+    public Animal() {
+
     }
 
     public void run() {
@@ -49,25 +56,31 @@ public abstract class Animal implements Runnable, Eatable {
         Random moveDecider = new Random();
         for (int i = 0; i < MOVE_DISTANCE; i++) {
             boolean moveDecision = moveDecider.nextBoolean();
+
             if (moveDecision) {
                 System.out.println("Animal will move...");
                 moveToOtherCell();
+
             } else {
                 System.out.println("Animal decided to stay here for now...");
             }
         }
         System.out.println("Animal finished his moving turn!");
         System.out.println("Current position - " + position);
+        Main.movesCount.incrementAndGet();
     }
 
     private void moveToOtherCell() {
+
         Random directionPicker = new Random();
         Direction[] directions = Direction.values();
         Direction direction;
         do {
             direction = directions[directionPicker.nextInt(directions.length)];
+
         } while (!directionValid(direction));
         changePosition(direction);
+
     }
 
 
@@ -93,6 +106,7 @@ public abstract class Animal implements Runnable, Eatable {
 
     private void changePosition(Direction direction) {
         System.out.println("Animal changes position...");
+
         int newX = -1;
         int newY = -1;
         switch (direction) {
@@ -121,6 +135,8 @@ public abstract class Animal implements Runnable, Eatable {
         this.position = newCell;
         this.position.addAnimal(this);
         System.out.println("Position changed...");
+
+
     }
 
     public Cell getPosition() {

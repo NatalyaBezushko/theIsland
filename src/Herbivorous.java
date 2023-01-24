@@ -1,6 +1,17 @@
 public abstract class Herbivorous extends Animal {
+    private static final Object Animal = 0;
+
+
     public Herbivorous(AnimalProperties animalProperties) {
         super(animalProperties);
+    }
+
+    public Herbivorous() {
+        super((AnimalProperties) Animal);
+    }
+
+    public Herbivorous(Cell cell) {
+        super((AnimalProperties) Animal);
     }
 
     @Override

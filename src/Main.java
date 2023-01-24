@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
-    private static int MAX_DEFAULT_ANIMAL_COUNT = 3;
+    private static int MAX_DEFAULT_ANIMAL_COUNT = 20;
 
     private static int SIMULATION_DURATION = 10;
 
@@ -28,10 +28,12 @@ public class Main {
         do {
             startDay();
             dayCount++;
+
         } while (dayCount < SIMULATION_DURATION);
 
         System.out.println("Simulation finished");
-        System.out.println("Total moves done = " + movesCount.toString());
+        System.out.println("Total moves done = " + movesCount);
+        System.out.println(movesCount.toString());
     }
 
     private static void populateIsland(Island island) {

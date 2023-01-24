@@ -1,6 +1,7 @@
 public enum AnimalType {
 
-    GOAT("goat");
+    GOAT("goat"), WOLF("wolf"), FOX("fox");
+
 
     private final String value;
 

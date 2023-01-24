@@ -1,21 +1,6 @@
-import java.util.Properties;
-
-import static java.lang.System.getProperties;
-
-public class Goat extends Herbivorous {
-
-    public Goat(AnimalProperties animalProperties) {
-        super(animalProperties);
-    }
-
-
+public class Goat extends Herbivorous{
     @Override
     protected double getEatableMass() {
-        return getAnimalProperties().getWeight() * 0.4;
+        return 0;
     }
-
-    private AnimalProperties getAnimalProperties() {
-        return getAnimalProperties();
-    }
-
 }
