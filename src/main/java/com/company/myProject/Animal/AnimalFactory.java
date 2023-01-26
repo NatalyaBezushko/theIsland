@@ -4,13 +4,13 @@ import com.company.myProject.Animal.*;
 
 public class AnimalFactory {
     Animal animal;
-    private  int goatCount = 0;
-    private int wolfCount = 0;
-    private int foxCount = 0;
+    public   int goatCount = 0;
+    public int wolfCount = 0;
+    public int foxCount = 0;
     private Cell position;
 
 
-    public Animal createAnimal(AnimalType type, AnimalType goat, AnimalType animalType) {
+    public Animal createAnimal(AnimalType animalType) {
 
         switch (animalType) {
             case GOAT:

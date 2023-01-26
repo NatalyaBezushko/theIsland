@@ -12,6 +12,7 @@ import static com.company.myProject.Animal.AnimalType.*;
 
 public class Main {
 
+    static AnimalFactory animalFactory = new AnimalFactory();
 
     private static int MAX_DEFAULT_ANIMAL_COUNT = 100;
 
@@ -30,7 +31,7 @@ public class Main {
 
         Island island = new Island(5, 3);
 
-        
+
 
         populateIsland(island);
 
@@ -73,25 +74,26 @@ public class Main {
     }
 
     private static void populateCell(Cell cell, Island island) {
-
         Random cellPopulationPicker = new Random();
         int goatCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int wolfCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int foxCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
 
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
-            AnimalFactory animalFactory = new AnimalFactory();
-            animalFactory.createAnimal(GOAT, WOLF, FOX);
+
+            animal = animalFactory.createAnimal( WOLF);
+
             goatCount++;
             foxCount++;
             wolfCount++;
-            System.out.println(animalFactory.createAnimal(GOAT, WOLF, FOX));
 
-            animalFactory.setPosition(cell);
+
+            animal.setPosition(cell);
             cell.addAnimal(animal);
             allAnimals.add(animal);
+
         }
-        System.out.printf("Cell %s populated with %s animals%n", cell);
+        System.out.printf("Cell %s populated with %s animals%n", cell, wolfCount);
     }
 
 

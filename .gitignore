@@ -1,2 +1,7 @@
-# Project exclude paths
+.dea,
+target,
+out,
+*.iml,
+*.log
+Project exclude paths
 /out/
