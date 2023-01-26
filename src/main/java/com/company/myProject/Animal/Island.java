@@ -1,13 +1,18 @@
+package com.company.myProject.Animal;
+
+import com.company.myProject.Animal.Animal;
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Island {
 
-    int xDimension;
-    int yDimension;
+    public int xDimension;
+    public int yDimension;
 
-    Cell[][] islandGrid;
+    public Cell[][] islandGrid;
     List <Animal> animalList = Collections.synchronizedList(new ArrayList<>());
 
     public Island(int xDimension, int yDimension) {

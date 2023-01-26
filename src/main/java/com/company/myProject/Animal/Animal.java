@@ -1,10 +1,14 @@
+package com.company.myProject.Animal;
+
+
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Animal implements Runnable, Eatable {
 
-    
+
+
     private AnimalProperties properties;
 
     private static final int MOVE_DISTANCE = 3;
@@ -12,6 +16,8 @@ public abstract class Animal implements Runnable, Eatable {
     private double currentStomachLevel;
 
     private int daysWithoutFood;
+
+    private static int MAX_LITTER_SIZE;
 
     private boolean alive;
 
@@ -46,7 +52,8 @@ public abstract class Animal implements Runnable, Eatable {
             System.out.println("is dead" + id);        }
         move();
         getFood();
-        //reproduce();
+        giveBirths();
+        System.out.println("Breed = " + breed());
     }
 
 
@@ -193,6 +200,20 @@ public abstract class Animal implements Runnable, Eatable {
     }
 
     protected abstract double getEatableMass();
+
+    public int breed() {
+        int births = 0;
+        Random random = new Random();
+        births = random.nextInt(MAX_LITTER_SIZE) + 1;
+        System.out.println("Breed = " + births);
+        return births;
+
+    }
+
+    public void giveBirths() {
+        Goat.countYoungGoat++;
+    }
+
 
 
     @Override

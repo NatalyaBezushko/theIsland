@@ -1,3 +1,7 @@
+package com.company.myProject.Animal;
+
+
+
 public abstract class Herbivorous extends Animal {
     private static final Object Animal = 0;
 
@@ -22,4 +26,6 @@ public abstract class Herbivorous extends Animal {
         eat(vegetation);
         System.out.println("Herbivorous ate food" + getId());
     }
+
+    public abstract void giveBirths(int breed);
 }

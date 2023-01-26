@@ -1,3 +1,5 @@
+package com.company.myProject.Animal;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
+
     private static int MAX_DEFAULT_ANIMAL_COUNT = 20;
 
     private static int SIMULATION_DURATION = 10;
@@ -16,13 +19,21 @@ public class Main {
 
     private static List<Animal> allAnimals = new ArrayList<>();
 
+
+
     AnimalProperties stomachCapacity;
 
     public static void main(String[] args) {
 
         Island island = new Island(5, 3);
 
+        AnimalFactory animalFactory = new AnimalFactory();
+
+        System.out.println(animalFactory.createAnimal(AnimalType.GOAT, AnimalType.WOLF, AnimalType.FOX).toString());
+
         populateIsland(island);
+
+
         System.out.println("Total animals = " + allAnimals.size());
         int dayCount = 0;
         do {
@@ -34,6 +45,7 @@ public class Main {
         System.out.println("Simulation finished");
         System.out.println("Total moves done = " + movesCount);
         System.out.println(movesCount.toString());
+
     }
 
     private static void populateIsland(Island island) {
@@ -79,4 +91,16 @@ public class Main {
         }
         System.out.printf("Cell %s populated with %s animals%n", cell, animalCount);
     }
+
+
+//    Double probability = EATING_PROBABILITY_CONFIG.getFor(wolf, goat);
+//    Random random = new Random();
+//        for (int i = 0; i < 10; i++) {
+//        System.out.print(String.format("%s tries to eat %s", wolf, goat);
+//        if (random.nextDouble() > probability) {
+//            System.out.println(" successfully");
+//        } else {
+//            System.out.println(" and failed");
+//        }
+//    }
 }

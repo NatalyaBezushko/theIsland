@@ -1,3 +1,7 @@
+package com.company.myProject.Animal;
+
+
+
 public class Fox extends Predator{
     public Fox(Cell properties) {
         super(properties);

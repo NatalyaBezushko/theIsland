@@ -1,6 +1,10 @@
+package com.company.myProject.Animal;
+
+import com.company.myProject.Animal.Animal;
+import com.company.myProject.Animal.Vegetation;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class Cell implements Runnable {

@@ -1,4 +1,8 @@
-public class Wolf extends Predator{
+package com.company.myProject.Animal;
+
+
+
+public class Wolf extends Predator {
     public Wolf(Cell properties) {
         super(properties);
     }
@@ -11,4 +15,5 @@ public class Wolf extends Predator{
     protected double getEatableMass() {
         return 0;
     }
+
 }

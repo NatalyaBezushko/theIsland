@@ -1,3 +1,5 @@
+package com.company.myProject.Animal;
+
 public abstract class AnimalProperties {
 
 

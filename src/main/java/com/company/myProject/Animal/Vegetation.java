@@ -1,3 +1,5 @@
+package com.company.myProject.Animal;
+
 public class Vegetation implements Eatable{
 
     public static final int MAX_VEGETATION_LEVEL = 200 * 15;
