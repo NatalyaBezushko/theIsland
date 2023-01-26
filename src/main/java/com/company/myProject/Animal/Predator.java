@@ -7,7 +7,7 @@ import java.util.Random;
 
 public abstract class Predator extends Animal{
 
-    private static final Object Animal = 0;
+    private static Object Animal;
 
     public Predator(Cell properties) {
         super((AnimalProperties) Animal);

@@ -8,10 +8,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.company.myProject.Animal.AnimalType.*;
+
 public class Main {
 
 
-    private static int MAX_DEFAULT_ANIMAL_COUNT = 20;
+    private static int MAX_DEFAULT_ANIMAL_COUNT = 100;
 
     private static int SIMULATION_DURATION = 10;
 
@@ -20,16 +22,15 @@ public class Main {
     private static List<Animal> allAnimals = new ArrayList<>();
 
 
-
     AnimalProperties stomachCapacity;
+
+    static Animal animal;
 
     public static void main(String[] args) {
 
         Island island = new Island(5, 3);
 
-        AnimalFactory animalFactory = new AnimalFactory();
-
-        System.out.println(animalFactory.createAnimal(AnimalType.GOAT, AnimalType.WOLF, AnimalType.FOX).toString());
+        
 
         populateIsland(island);
 
@@ -47,6 +48,8 @@ public class Main {
         System.out.println(movesCount.toString());
 
     }
+
+
 
     private static void populateIsland(Island island) {
         for (int i = 0; i < island.xDimension; i++) {
@@ -70,26 +73,25 @@ public class Main {
     }
 
     private static void populateCell(Cell cell, Island island) {
+
         Random cellPopulationPicker = new Random();
-        int animalCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
+        int goatCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
+        int wolfCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
+        int foxCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
 
-        for (int i = 0; i < animalCount; i++) {
-            Animal animal = new Animal(island) {
-                @Override
-                protected void getFood() {
+        for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
+            AnimalFactory animalFactory = new AnimalFactory();
+            animalFactory.createAnimal(GOAT, WOLF, FOX);
+            goatCount++;
+            foxCount++;
+            wolfCount++;
+            System.out.println(animalFactory.createAnimal(GOAT, WOLF, FOX));
 
-                }
-
-                @Override
-                protected double getEatableMass() {
-                    return 0;
-                }
-            };
-            animal.setPosition(cell);
+            animalFactory.setPosition(cell);
             cell.addAnimal(animal);
             allAnimals.add(animal);
         }
-        System.out.printf("Cell %s populated with %s animals%n", cell, animalCount);
+        System.out.printf("Cell %s populated with %s animals%n", cell);
     }
 
 

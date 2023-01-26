@@ -3,7 +3,7 @@ package com.company.myProject.Animal;
 
 
 public abstract class Herbivorous extends Animal {
-    private static final Object Animal = 0;
+    private static Object Animal;
 
 
     public Herbivorous(AnimalProperties animalProperties) {

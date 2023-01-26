@@ -7,6 +7,7 @@ public class AnimalFactory {
     private  int goatCount = 0;
     private int wolfCount = 0;
     private int foxCount = 0;
+    private Cell position;
 
 
     public Animal createAnimal(AnimalType type, AnimalType goat, AnimalType animalType) {
@@ -28,6 +29,14 @@ public class AnimalFactory {
         }System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount).toString());
         return  animal;
 
+    }
+
+    public void setPosition(Cell position) {
+        this.position = position;
+    }
+
+    public Cell getPosition() {
+        return position;
     }
 }
 
