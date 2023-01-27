@@ -210,7 +210,7 @@ public abstract class Animal implements Runnable, Eatable {
 
     }
 
-    public void giveBirths() {
+    public static void giveBirths() {
         Goat.countYoungGoat++;
     }
 

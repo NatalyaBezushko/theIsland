@@ -2,6 +2,5 @@
 target,
 out,
 *.iml,
-*.log
 Project exclude paths
 /out/

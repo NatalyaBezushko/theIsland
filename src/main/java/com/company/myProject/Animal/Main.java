@@ -20,6 +20,8 @@ public class Main {
 
     public static AtomicInteger movesCount = new AtomicInteger(0);
 
+    public static int animalCount;
+
     private static List<Animal> allAnimals = new ArrayList<>();
 
 
@@ -27,11 +29,10 @@ public class Main {
 
     static Animal animal;
 
+
     public static void main(String[] args) {
 
         Island island = new Island(5, 3);
-
-
 
         populateIsland(island);
 
@@ -95,7 +96,13 @@ public class Main {
         }
         System.out.printf("Cell %s populated with %s animals%n", cell, wolfCount);
     }
-
+        private int reproduce(int countYoungGoat) {
+        for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
+            Goat.giveBirths();
+            countYoungGoat++;
+            System.out.println("Was born" + countYoungGoat);
+        }return countYoungGoat;
+    }
 
 //    Double probability = EATING_PROBABILITY_CONFIG.getFor(wolf, goat);
 //    Random random = new Random();
