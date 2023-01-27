@@ -12,9 +12,21 @@ import static com.company.myProject.Animal.AnimalType.*;
 
 public class Main {
 
-    static AnimalFactory animalFactory = new AnimalFactory();
+    private static AnimalFactory animalFactory = new AnimalFactory();
 
-    private static int MAX_DEFAULT_ANIMAL_COUNT = 100;
+    private static Animal animal = new Animal() {
+        @Override
+        protected void getFood() {
+
+        }
+
+        @Override
+        protected double getEatableMass() {
+            return 0;
+        }
+    };
+
+    private static int MAX_DEFAULT_ANIMAL_COUNT = 10;
 
     private static int SIMULATION_DURATION = 10;
 
@@ -27,7 +39,7 @@ public class Main {
 
     AnimalProperties stomachCapacity;
 
-    static Animal animal;
+
 
 
     public static void main(String[] args) {
@@ -82,7 +94,9 @@ public class Main {
 
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
 
-            animal = animalFactory.createAnimal( WOLF);
+            animal = animalFactory.createAnimal(WOLF);
+            animal = animalFactory.createAnimal(GOAT);
+            animal = animalFactory.createAnimal(FOX);
 
             goatCount++;
             foxCount++;
