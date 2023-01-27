@@ -45,7 +45,7 @@ public class Goat extends Herbivorous {
 
     }
 
-    private String youngGoat() {
+    private Object youngGoat() {
         return youngGoat();
     }
 }

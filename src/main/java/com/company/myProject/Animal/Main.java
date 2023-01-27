@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.company.myProject.Animal.AnimalType.*;
+import static com.company.myProject.config.GameConfig.EATING_PROBABILITY_CONFIG;
 
 public class Main {
 
@@ -27,6 +28,9 @@ public class Main {
     };
 
 
+    Animal wolf = new Wolf();
+    static Animal goat = new Goat();
+    Animal fox = new Fox();
 
     private static int MAX_DEFAULT_ANIMAL_COUNT = 10;
 
@@ -50,11 +54,8 @@ public class Main {
 
         populateIsland(island);
 
-        Animal Wolf = new Wolf();
-        Animal Goat = new Goat();
-        Animal Fox = new Fox();
 
-        animal.giveBirths();
+        goat.giveBirths();
 
         System.out.println("Total animals = " + allAnimals.size());
         int dayCount = 0;
@@ -120,10 +121,10 @@ public class Main {
 
 
 //    Double probability = EATING_PROBABILITY_CONFIG.getFor(WOLF, GOAT);
-//    Random random = new Random();
+//     Random random = new Random();
 //        for (int i = 0; i < 10; i++) {
-//        System.out.print(String.format("%s tries to eat %s", WOLF, GOAT);
-//        if (random.nextDouble() > probability) {
+//        System.out.print(String.format("%s tries to eat %s", WOLF, GOAT)};
+//        if (random.nextDouble() < probability) {
 //            System.out.println(" successfully");
 //        } else {
 //            System.out.println(" and failed");
