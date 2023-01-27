@@ -1,15 +1,15 @@
 package com.company.myProject.Animal;
 
-public class Goat extends Herbivorous{
+public class Goat extends Herbivorous {
 
-    static int countYoungGoat;
+    static com.company.myProject.Animal.Animal countYoungGoat;
 
     public Goat(AnimalProperties animalProperties) {
         super(animalProperties);
     }
 
 
-    public int getCountYoungGoat() {
+    public com.company.myProject.Animal.Animal getCountYoungGoat() {
         return countYoungGoat;
     }
 
@@ -17,6 +17,11 @@ public class Goat extends Herbivorous{
 
     }
 
+    @Override
+    public com.company.myProject.Animal.Animal giveBirths(com.company.myProject.Animal.Animal animal) {
+
+        return animal;
+    }
 
 
     @Override
@@ -31,11 +36,16 @@ public class Goat extends Herbivorous{
     @Override
     public void giveBirths(int breed) {
         int births = breed();
-        for (int i = 0; i < 30; i++) {
-        Goat youngGoat = new Goat();
+        for (int i = 0; i < 10; i++) {
+            Goat youngGoat;
+            youngGoat = new Goat();
+
+            System.out.println("Breed = " + youngGoat());
         }
-        countYoungGoat++;
-        System.out.println("Breed = " + getCountYoungGoat());
+
     }
 
+    private String youngGoat() {
+        return youngGoat();
+    }
 }

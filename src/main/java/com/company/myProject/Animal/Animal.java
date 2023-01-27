@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class Animal implements Runnable, Eatable {
+import static com.company.myProject.Animal.Goat.countYoungGoat;
 
+public abstract class Animal implements Runnable, Eatable {
 
 
     private AnimalProperties properties;
@@ -26,6 +27,7 @@ public abstract class Animal implements Runnable, Eatable {
     private Island island;
     private Cell position;
     private AtomicInteger movesCount;
+
 
     public Animal(AnimalProperties properties, Island island) {
         this.properties = properties;
@@ -201,6 +203,31 @@ public abstract class Animal implements Runnable, Eatable {
 
     protected abstract double getEatableMass();
 
+    public void giveBirths() {
+
+    }
+
+
+//    public Animal giveBirths(Animal animal) {
+//        int birth = breed();
+//        for (int i = 0; i < MAX_LITTER_SIZE; i++) {
+//            animal = new Animal() {
+//                @Override
+//                protected void getFood() {
+//
+//                }
+//
+//                @Override
+//                protected double getEatableMass() {
+//                    return 0;
+//                }
+//            };
+//            animal++;
+//            System.out.println("Breed" + animal);
+//            return countYoungGoat;
+//        }
+//        return animal;
+//    }
     public int breed() {
         int births = 0;
         Random random = new Random();
@@ -209,11 +236,6 @@ public abstract class Animal implements Runnable, Eatable {
         return births;
 
     }
-
-    public static void giveBirths() {
-        Goat.countYoungGoat++;
-    }
-
 
 
     @Override
