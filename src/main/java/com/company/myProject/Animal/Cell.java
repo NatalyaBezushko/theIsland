@@ -14,7 +14,11 @@ public class Cell implements Runnable {
 
     List<Animal> animalList;
 
-    Goat goat = new Goat();
+    public Animal animal;
+
+    public Animal getAnimal() {
+        return animal;
+    }
 
     public Vegetation getVegetation() {
         return vegetation;
@@ -27,6 +31,7 @@ public class Cell implements Runnable {
         this.y = y;
         this.animalList = new ArrayList<>();
         this.vegetation = new Vegetation(new Random().nextInt(Vegetation.MAX_VEGETATION_LEVEL));
+        this.cell.getAnimal().add(new Goat);
     }
 
     public synchronized void addAnimal(Animal animal) {

@@ -275,4 +275,6 @@ public abstract class Animal implements Runnable, Eatable {
         return id;
     }
 
+    public void add(Goat goat) {
+    }
 }
