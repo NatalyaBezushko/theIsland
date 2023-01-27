@@ -38,15 +38,13 @@ public abstract class Animal implements Runnable, Eatable {
         this.island = island;
     }
 
-    public Animal(Island island) {
-    }
-
-    public Animal(AnimalProperties stomachCapacity) {
-    }
-
     public Animal() {
 
     }
+
+    public Animal(AnimalProperties animal) {
+    }
+
 
     public void run() {
         System.out.println("Starts daily routine" + id);

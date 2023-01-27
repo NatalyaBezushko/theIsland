@@ -14,6 +14,8 @@ public class Cell implements Runnable {
 
     List<Animal> animalList;
 
+    Goat goat = new Goat();
+
     public Vegetation getVegetation() {
         return vegetation;
     }
