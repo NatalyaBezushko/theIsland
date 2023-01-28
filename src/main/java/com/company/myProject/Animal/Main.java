@@ -27,7 +27,7 @@ public class Main {
         }
     };
 
-
+    Goat youngGoat = new Goat();
     Animal wolf = new Wolf();
     static Animal goat = new Goat();
     Animal fox = new Fox();
@@ -99,14 +99,17 @@ public class Main {
         int goatCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int wolfCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int foxCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
+        int youngGoatCount  = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
 
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
 
             animal = animalFactory.createAnimal(WOLF);
             animal = animalFactory.createAnimal(GOAT);
             animal = animalFactory.createAnimal(FOX);
+            animal = animalFactory.createAnimal(YOUNGGOAT);
 
             goatCount++;
+            youngGoatCount++;
             foxCount++;
             wolfCount++;
 

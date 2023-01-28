@@ -1,12 +1,11 @@
 package com.company.myProject.Animal;
 
-import com.company.myProject.Animal.*;
-
 public class AnimalFactory {
     Animal animal;
     public   int goatCount = 0;
     public int wolfCount = 0;
     public int foxCount = 0;
+    public int youngGoatCount = 0;
     private Cell position;
 
 
@@ -17,6 +16,7 @@ public class AnimalFactory {
 
              animal = new Goat();
              this.goatCount++;
+             this.youngGoatCount++;
              break;
             case WOLF:
                 animal = new Wolf();
@@ -26,7 +26,9 @@ public class AnimalFactory {
                 animal = new Fox();
                 this.foxCount++;
                 break;
-        }System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount).toString());
+
+
+        }System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount + "Young Goats" + youngGoatCount).toString());
         return  animal;
 
     }
