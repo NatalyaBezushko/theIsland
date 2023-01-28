@@ -14,11 +14,7 @@ public class Cell implements Runnable {
     final int y;
 
     Goat goat = new Goat();
-    Cell position;
 
-    public Cell getPosition() {
-        return position;
-    }
 
     public Vegetation getVegetation;
 

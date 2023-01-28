@@ -53,7 +53,7 @@ public abstract class Animal implements Runnable, Eatable {
         move();
         getFood();
         giveBirths();
-        System.out.println("Breed = " + breed());
+        System.out.println("Breed = " );
     }
 
 
@@ -228,14 +228,7 @@ public abstract class Animal implements Runnable, Eatable {
 //        }
 //        return animal;
 //    }
-    public int breed() {
-        int births = 0;
-        Random random = new Random();
-        births = random.nextInt(MAX_LITTER_SIZE) + 1;
-        System.out.println("Breed = " + births);
-        return births;
 
-    }
 
 
     @Override

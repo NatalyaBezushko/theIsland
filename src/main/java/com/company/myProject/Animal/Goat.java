@@ -35,11 +35,12 @@ public class Goat extends Herbivorous {
 
     @Override
     public void giveBirths(int breed) {
-        int births = breed();
+
         for (int i = 0; i < 10; i++) {
             Goat youngGoat;
             youngGoat = new Goat();
             getPosition().addAnimal(youngGoat);
+
             System.out.println("Breed = " + youngGoat);
         }
 
