@@ -8,8 +8,18 @@ import java.util.List;
 import java.util.Random;
 
 public class Cell implements Runnable {
+
+    private Goat youngGoat;
     final int x;
     final int y;
+
+    Goat goat = new Goat();
+    Cell position;
+
+    public Cell getPosition() {
+        return position;
+    }
+
     public Vegetation getVegetation;
 
     List<Animal> animalList;
@@ -31,7 +41,6 @@ public class Cell implements Runnable {
         this.y = y;
         this.animalList = new ArrayList<>();
         this.vegetation = new Vegetation(new Random().nextInt(Vegetation.MAX_VEGETATION_LEVEL));
-        this.cell.getAnimal().add(new Goat);
     }
 
     public synchronized void addAnimal(Animal animal) {

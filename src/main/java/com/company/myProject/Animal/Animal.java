@@ -206,6 +206,8 @@ public abstract class Animal implements Runnable, Eatable {
     }
 
 
+
+
 //    public Animal giveBirths(Animal animal) {
 //        int birth = breed();
 //        for (int i = 0; i < MAX_LITTER_SIZE; i++) {

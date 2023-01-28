@@ -39,7 +39,7 @@ public class Goat extends Herbivorous {
         for (int i = 0; i < 10; i++) {
             Goat youngGoat;
             youngGoat = new Goat();
-
+            getPosition().addAnimal(youngGoat);
             System.out.println("Breed = " + countYoungGoat);
         }
 
