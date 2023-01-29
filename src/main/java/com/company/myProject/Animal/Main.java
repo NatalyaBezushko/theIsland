@@ -48,14 +48,14 @@ public class Main {
     AnimalProperties stomachCapacity;
 
 
-
-
     public static void main(String[] args) {
 
         Island island = new Island(5, 3);
 
         populateIsland(island);
 
+        animal.getFood();
+        wolf.eat();
 
         System.out.println("Total animals = " + allAnimals.size());
         int dayCount = 0;
@@ -70,7 +70,6 @@ public class Main {
         System.out.println(movesCount.toString());
 
     }
-
 
 
     private static void populateIsland(Island island) {
@@ -99,7 +98,7 @@ public class Main {
         int goatCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int wolfCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         int foxCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
-        int youngGoatCount  = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
+        int youngGoatCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
 
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
 
@@ -123,16 +122,18 @@ public class Main {
 
     }
 
-//
-//
-//    Double probability = EATING_PROBABILITY_CONFIG.getHuntSuccessProbabilityFor(wolf, goat);
-//        for (int i = 0; i < 10; i++) {
-//        Random random = new Random();
-//        System.out.print(String.format("%s tries to eat %s", WOLF, GOAT));
-//        if (random.nextDouble() < probability) {
-//            System.out.println(" successfully");
-//        } else {
-//            System.out.println(" and failed");
-//        }
-//   }
+
+    Double probability = EATING_PROBABILITY_CONFIG.getHuntSuccessProbabilityFor(wolf, goat);
+
+    {
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            System.out.print(String.format("%s tries to eat %s", WOLF, GOAT));
+            if (random.nextDouble() < probability) {
+                System.out.println(" successfully");
+            } else {
+                System.out.println(" and failed");
+            }
+        }
+    }
 }
