@@ -1,6 +1,7 @@
 package com.company.myProject.Animal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -55,8 +56,9 @@ public class Main {
 
         populateIsland(island);
 
-        wolf.getFood();
-        goat.getFood();
+        for (Animal animal1 : Arrays.asList(wolf, goat)) {
+            animal1.getFood();
+        }
 
         wolf.eat(animal);
         goat.eat(vegetation);

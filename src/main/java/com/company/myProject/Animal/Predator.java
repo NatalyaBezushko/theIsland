@@ -19,7 +19,7 @@ public abstract class Predator extends Animal{
 
     @Override
     protected void getFood() {
-        System.out.println("Herbivorous started getting food" + getId());
+        System.out.println("Predator started getting food" + getId());
         Cell position = this.getPosition();
         List<Animal>  animalList;
         animalList = (List<Animal>) position.getAnimalList().stream()
@@ -28,6 +28,6 @@ public abstract class Predator extends Animal{
             return;
         }
         eat(animalList.get(new Random().nextInt(animalList.size() - 1)));
-        System.out.println("Herbivorous ate food" + getId());
+        System.out.println("Predator ate food" + getId());
     }
 }
