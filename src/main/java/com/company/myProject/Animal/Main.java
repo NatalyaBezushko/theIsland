@@ -28,10 +28,11 @@ public class Main {
         }
     };
 
-    Goat youngGoat = new Goat();
-    Animal wolf = new Wolf();
+
+    static Animal wolf = new Wolf();
     static Animal goat = new Goat();
-    Animal fox = new Fox();
+    static Goat youngGoat = new Goat();
+    static Animal fox = new Fox();
 
     private static int MAX_DEFAULT_ANIMAL_COUNT = 10;
 
@@ -54,8 +55,6 @@ public class Main {
         Island island = new Island(5, 3);
 
         populateIsland(island);
-
-        Goat.giveBirths();
 
 
         System.out.println("Total animals = " + allAnimals.size());
@@ -121,13 +120,15 @@ public class Main {
 
         }
         System.out.printf("Cell %s populated with %s animals%n", cell, wolfCount);
+
     }
 
 
-//    Double probability = EATING_PROBABILITY_CONFIG.getFor(WOLF, GOAT);
-//     Random random = new Random();
+//
+//    Double probability = EATING_PROBABILITY_CONFIG.getHuntSuccessProbabilityFor(wolf, goat);
 //        for (int i = 0; i < 10; i++) {
-//        System.out.print(String.format("%s tries to eat %s", WOLF, GOAT)};
+//        Random random = new Random();
+//        System.out.print(String.format("%s tries to eat %s", WOLF, GOAT));
 //        if (random.nextDouble() < probability) {
 //            System.out.println(" successfully");
 //        } else {

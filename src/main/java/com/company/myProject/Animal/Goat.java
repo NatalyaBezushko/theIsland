@@ -16,6 +16,9 @@ public class Goat extends Herbivorous {
     public Goat() {
 
     }
+    private static AnimalProperties getAnimalProperties() {
+        return getAnimalProperties();
+    }
 
 
     @Override
@@ -23,10 +26,7 @@ public class Goat extends Herbivorous {
         return getAnimalProperties().getWeight() * 0.4;
     }
 
-    private AnimalProperties getAnimalProperties() {
-        AnimalProperties animalProperties = getAnimalProperties();
-        return animalProperties;
-    }
+
 
     public static void giveBirths() {
 
@@ -40,5 +40,6 @@ public class Goat extends Herbivorous {
         }
 
     }
+
 
 }

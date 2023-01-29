@@ -1,23 +1,26 @@
 package com.company.myProject.Animal;
 
+import static com.company.myProject.Animal.Main.goat;
+
 public class AnimalFactory {
-    Animal animal;
-    public   int goatCount = 0;
-    public int wolfCount = 0;
-    public int foxCount = 0;
-    public int youngGoatCount = 0;
+
+    public static  int goatCount = 0;
+    public static int wolfCount = 0;
+    public static int foxCount = 0;
+    public static int youngGoatCount = 0;
     private Cell position;
 
 
     public Animal createAnimal(AnimalType animalType) {
-
+        Animal animal = null;
         switch (animalType) {
             case GOAT:
-
              animal = new Goat();
              this.goatCount++;
              this.youngGoatCount++;
              break;
+            case YOUNGGOAT:
+                animal = new YoungGoat();
             case WOLF:
                 animal = new Wolf();
                 this.wolfCount++;

@@ -13,7 +13,11 @@ public class Wolf extends Predator {
 
     @Override
     protected double getEatableMass() {
-        return 0;
+        return getAnimalProperties().getWeight() * 0.4;
+    }
+
+    private AnimalProperties getAnimalProperties() {
+        return getAnimalProperties();
     }
 
 }

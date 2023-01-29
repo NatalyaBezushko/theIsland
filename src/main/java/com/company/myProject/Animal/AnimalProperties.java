@@ -15,7 +15,7 @@ public abstract class AnimalProperties {
 
     private final int deathFromStarvingAfter;
 
-    private final int maxAmountInCell;
+    private int maxAmountInCell = 10;
 
     public AnimalProperties(double weight, int range, double stomachCapacity, double dailyEnergyConsumption, int deathFromStarvingAfter, int maxAmauntInCell) {
         this.weight = weight;
@@ -23,7 +23,7 @@ public abstract class AnimalProperties {
         this.stomachCapacity = stomachCapacity;
         this.dailyEnergyConsumption = dailyEnergyConsumption;
         this.deathFromStarvingAfter = deathFromStarvingAfter;
-        this.maxAmountInCell = maxAmauntInCell;
+        this.maxAmountInCell = 10;
     }
 
     public abstract Animal createAnimal();

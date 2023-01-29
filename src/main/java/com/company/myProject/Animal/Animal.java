@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static com.company.myProject.Animal.Goat.countYoungGoat;
 import static com.company.myProject.Animal.Goat.giveBirths;
 
+
 public abstract class Animal implements Runnable, Eatable {
 
 
@@ -50,10 +51,11 @@ public abstract class Animal implements Runnable, Eatable {
     public void run() {
         System.out.println("Starts daily routine" + id);
         if(!alive) {
-            System.out.println("is dead" + id);        }
+            System.out.println("is dead" + id);
+        }
         move();
         getFood();
-        Goat.giveBirths();
+        reproduce();
         System.out.println("Breed = " );
     }
 
@@ -199,6 +201,11 @@ public abstract class Animal implements Runnable, Eatable {
     }
 
     protected abstract double getEatableMass();
+
+    public void reproduce() {
+        Goat.giveBirths();
+    }
+
 
 //    public void giveBirths() {
 //
