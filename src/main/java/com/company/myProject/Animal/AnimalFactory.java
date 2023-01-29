@@ -17,10 +17,10 @@ public class AnimalFactory {
             case GOAT:
              animal = new Goat();
              this.goatCount++;
-             this.youngGoatCount++;
              break;
             case YOUNGGOAT:
                 animal = new YoungGoat();
+                this.youngGoatCount++;
             case WOLF:
                 animal = new Wolf();
                 this.wolfCount++;
