@@ -123,7 +123,7 @@ public class Main {
 
     }
 
-
+//
 //
 //    Double probability = EATING_PROBABILITY_CONFIG.getHuntSuccessProbabilityFor(wolf, goat);
 //        for (int i = 0; i < 10; i++) {

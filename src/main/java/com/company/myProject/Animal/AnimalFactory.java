@@ -1,6 +1,6 @@
 package com.company.myProject.Animal;
 
-import static com.company.myProject.Animal.Main.goat;
+import static com.company.myProject.Animal.Main.animal;
 
 public class AnimalFactory {
 
@@ -12,7 +12,7 @@ public class AnimalFactory {
 
 
     public Animal createAnimal(AnimalType animalType) {
-        Animal animal = null;
+        Animal result = null;
         switch (animalType) {
             case GOAT:
              animal = new Goat();
