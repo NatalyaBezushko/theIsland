@@ -40,9 +40,9 @@ public class Goat extends Herbivorous {
             Goat youngGoat;
             youngGoat = new Goat();
             getPosition().addAnimal(youngGoat);
-            yongGoat++;
+
             System.out.println("Breed = " + youngGoat);
-            return;
+
         }
 
     }
