@@ -15,7 +15,8 @@ public class Main {
 
     private static AnimalFactory animalFactory = new AnimalFactory();
 
-    private static Animal animal = new Animal() {
+    static Animal animal = new Animal() {
+
         @Override
         protected void getFood() {
 
@@ -54,8 +55,8 @@ public class Main {
 
         populateIsland(island);
 
+        Goat.giveBirths();
 
-        goat.giveBirths();
 
         System.out.println("Total animals = " + allAnimals.size());
         int dayCount = 0;

@@ -6,6 +6,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.company.myProject.Animal.Goat.countYoungGoat;
+import static com.company.myProject.Animal.Goat.giveBirths;
 
 public abstract class Animal implements Runnable, Eatable {
 
@@ -25,7 +26,7 @@ public abstract class Animal implements Runnable, Eatable {
 
     private UUID id;
     private Island island;
-    private Cell position;
+    private static Cell position;
     private AtomicInteger movesCount;
 
 
@@ -55,8 +56,6 @@ public abstract class Animal implements Runnable, Eatable {
         giveBirths();
         System.out.println("Breed = " );
     }
-
-
 
     public void move() {
         System.out.printf("Animal [%s] started moving. Current position - %s %n", this, position);
@@ -146,7 +145,7 @@ public abstract class Animal implements Runnable, Eatable {
 
     }
 
-    public Cell getPosition() {
+    public static Cell getPosition() {
         return position;
     }
 
@@ -201,9 +200,9 @@ public abstract class Animal implements Runnable, Eatable {
 
     protected abstract double getEatableMass();
 
-    public void giveBirths() {
-
-    }
+//    public void giveBirths() {
+//
+//    }
 
 
 

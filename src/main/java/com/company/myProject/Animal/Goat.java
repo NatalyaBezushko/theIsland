@@ -17,24 +17,17 @@ public class Goat extends Herbivorous {
 
     }
 
-    @Override
-    public com.company.myProject.Animal.Animal giveBirths(com.company.myProject.Animal.Animal animal) {
-
-        return animal;
-    }
-
 
     @Override
     protected double getEatableMass() {
         return getAnimalProperties().getWeight() * 0.4;
     }
 
-    private AnimalProperties getAnimalProperties() {
+    private static AnimalProperties getAnimalProperties() {
         return getAnimalProperties();
     }
 
-    @Override
-    public void giveBirths(int yongGoat) {
+    public static void giveBirths() {
 
         for (int i = 0; i < getAnimalProperties().getMaxAmauntInCell(); i++) {
             Goat youngGoat;

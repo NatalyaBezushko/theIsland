@@ -27,7 +27,4 @@ public abstract class Herbivorous extends Animal {
         System.out.println("Herbivorous ate food" + getId());
     }
 
-    public abstract com.company.myProject.Animal.Animal giveBirths(com.company.myProject.Animal.Animal animal);
-
-    public abstract void giveBirths(int breed);
 }
