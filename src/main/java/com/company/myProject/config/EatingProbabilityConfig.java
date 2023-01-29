@@ -15,7 +15,7 @@ public class EatingProbabilityConfig<Animal> {
         return row.getProbabilities().get(food) / 100.0;
     }
 
-    public Double getFor(Animal predator, Animal food) {
+    public Double getHuntSuccessProbabilityFor(Animal predator, Animal food) {
         return getFor(predator.getClass().getSimpleName().toLowerCase(), food.getClass().getSimpleName().toLowerCase());
     }
 

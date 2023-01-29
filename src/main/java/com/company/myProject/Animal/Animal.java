@@ -53,7 +53,7 @@ public abstract class Animal implements Runnable, Eatable {
             System.out.println("is dead" + id);        }
         move();
         getFood();
-        giveBirths();
+        Goat.giveBirths();
         System.out.println("Breed = " );
     }
 

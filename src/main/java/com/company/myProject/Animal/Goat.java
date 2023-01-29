@@ -23,8 +23,9 @@ public class Goat extends Herbivorous {
         return getAnimalProperties().getWeight() * 0.4;
     }
 
-    private static AnimalProperties getAnimalProperties() {
-        return getAnimalProperties();
+    private AnimalProperties getAnimalProperties() {
+        AnimalProperties animalProperties = getAnimalProperties();
+        return animalProperties;
     }
 
     public static void giveBirths() {
