@@ -21,6 +21,8 @@ public class Goat extends Herbivorous {
     }
 
 
+
+
     @Override
     protected double getEatableMass() {
         return getAnimalProperties().getWeight() * 0.4;

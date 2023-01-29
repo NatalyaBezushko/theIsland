@@ -8,11 +8,11 @@ public class AnimalFactory {
     public static int wolfCount = 0;
     public static int foxCount = 0;
     public static int youngGoatCount = 0;
-    private Cell position;
+
 
 
     public Animal createAnimal(AnimalType animalType) {
-        Animal result = null;
+        Animal animal = null;
         switch (animalType) {
             case GOAT:
              animal = new Goat();
@@ -36,13 +36,7 @@ public class AnimalFactory {
 
     }
 
-    public void setPosition(Cell position) {
-        this.position = position;
-    }
 
-    public Cell getPosition() {
-        return position;
-    }
 }
 
 

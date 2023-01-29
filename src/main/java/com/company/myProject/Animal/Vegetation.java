@@ -12,6 +12,10 @@ public class Vegetation implements Eatable{
         this.vegetation = vegetation;
     }
 
+    public Vegetation() {
+
+    }
+
 
     @Override
     public synchronized double consumeAsFood(double required) {

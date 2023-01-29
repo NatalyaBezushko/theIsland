@@ -1,7 +1,5 @@
 package com.company.myProject.Animal;
 
-
-
 public class Wolf extends Predator {
     public Wolf(Cell properties) {
         super(properties);

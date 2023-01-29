@@ -33,6 +33,7 @@ public class Main {
     static Animal goat = new Goat();
     static Goat youngGoat = new Goat();
     static Animal fox = new Fox();
+    static Vegetation vegetation = new Vegetation();
 
     private static int MAX_DEFAULT_ANIMAL_COUNT = 10;
 
@@ -54,8 +55,12 @@ public class Main {
 
         populateIsland(island);
 
-        animal.getFood();
-        wolf.eat();
+        wolf.getFood();
+        goat.getFood();
+
+        wolf.eat(animal);
+        goat.eat(vegetation);
+
 
         System.out.println("Total animals = " + allAnimals.size());
         int dayCount = 0;
