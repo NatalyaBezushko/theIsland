@@ -18,9 +18,6 @@ public class AnimalFactory {
              animal = new Goat();
              this.goatCount++;
              break;
-            case YOUNGGOAT:
-                animal = new YoungGoat();
-                this.youngGoatCount++;
             case WOLF:
                 animal = new Wolf();
                 this.wolfCount++;
@@ -31,7 +28,7 @@ public class AnimalFactory {
                 break;
 
 
-        }System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount + "Young Goats" + youngGoatCount).toString());
+        }System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount).toString());
         return  animal;
 
     }

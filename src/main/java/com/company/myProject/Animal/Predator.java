@@ -4,6 +4,7 @@ package com.company.myProject.Animal;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public abstract class Predator extends Animal{
 
@@ -23,7 +24,8 @@ public abstract class Predator extends Animal{
         Cell position = this.getPosition();
         List<Animal>  animalList;
         animalList = (List<Animal>) position.getAnimalList().stream()
-                .filter(animal -> animal instanceof Herbivorous);
+                .filter(animal -> animal instanceof Herbivorous)
+                .collect(Collectors.toList());
         if (animalList.size() <= 1) {
             return;
         }

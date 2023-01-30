@@ -16,9 +16,9 @@ public abstract class Animal implements Runnable, Eatable {
 
     private static final int MOVE_DISTANCE = 3;
 
-    private double currentStomachLevel;
+    public double currentStomachLevel;
 
-    private int daysWithoutFood;
+    public int daysWithoutFood;
 
     private static int MAX_LITTER_SIZE;
 
@@ -175,18 +175,9 @@ public abstract class Animal implements Runnable, Eatable {
         }
     }
 
-    protected abstract void getFood();
+    abstract void getFood();
 
-    protected void eat(Eatable eatable) {
-        double consumed = eatable.consumeAsFood(getStomachCapacity());
-        currentStomachLevel = currentStomachLevel + consumed;
-        if (currentStomachLevel >= getStomachCapacity()) ;
-        {
-            currentStomachLevel = getStomachCapacity();
-
-    }
-    daysWithoutFood = -1;
-}
+    abstract void eat(Eatable eatable);
 
     public synchronized double consumeAsFood(double required) {
         double consumed;

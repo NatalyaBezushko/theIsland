@@ -9,7 +9,7 @@ public abstract class AnimalProperties {
 
     private final int range;
 
-    public final double stomachCapacity;
+    public double stomachCapacity;
 
     private final double dailyEnergyConsumption;
 
