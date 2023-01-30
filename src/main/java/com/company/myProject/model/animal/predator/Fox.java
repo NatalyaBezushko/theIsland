@@ -4,9 +4,11 @@ package com.company.myProject.model.animal.predator;
 import com.company.myProject.Island.Cell;
 import com.company.myProject.model.animal.AnimalProperties;
 
+import static com.company.myProject.model.animal.AnimalType.GOAT;
+
 public class Fox extends Predator {
-    public Fox(Cell properties) {
-        super(properties);
+    public Fox(Cell position) {
+        super(GOAT.getProperties(), position);
     }
 
     @Override

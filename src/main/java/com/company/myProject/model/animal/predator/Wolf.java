@@ -3,13 +3,11 @@ package com.company.myProject.model.animal.predator;
 import com.company.myProject.Island.Cell;
 import com.company.myProject.model.animal.AnimalProperties;
 
-public class Wolf extends Predator {
-    public Wolf(Cell properties) {
-        super(properties);
-    }
+import static com.company.myProject.model.animal.AnimalType.GOAT;
 
-    public Wolf() {
-        super();
+public class Wolf extends Predator {
+    public Wolf(Cell position) {
+        super(GOAT.getProperties(), position);
     }
 
 

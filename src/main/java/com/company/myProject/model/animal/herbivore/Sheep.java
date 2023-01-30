@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Sheep extends Herbivorous {
 
-    public static final AnimalProperties SHEEP_PROPERTIES = new AnimalProperties(AnimalType.GOAT, 50, 3, 4, 20,
+    public static final AnimalProperties SHEEP_PROPERTIES = new AnimalProperties(AnimalType.SHEEP, 50, 3, 4, 20,
             5, 5, 150);
 
     public Sheep(Cell currentPosition) {
@@ -24,9 +24,9 @@ public class Sheep extends Herbivorous {
         double maxLitterSize = SHEEP_PROPERTIES.getMaxLitterSize();
         int thisLitter = new Random().nextInt((int) maxLitterSize);
         for (int i = 0; i < thisLitter; i++) {
-            Sheep newBornGoat= new Sheep(getPosition());
-            getPosition().addAnimal(newBornGoat);
-            System.out.println("Breed = " + newBornGoat);
+            Sheep newBornSheep= new Sheep(getPosition());
+            getPosition().addAnimal(newBornSheep);
+            System.out.println("Breed = " + newBornSheep);
         }
     }
 

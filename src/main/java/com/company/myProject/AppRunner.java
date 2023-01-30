@@ -3,6 +3,7 @@ package com.company.myProject;
 import com.company.myProject.Island.Island;
 import com.company.myProject.config.fromKostia.EatingProbability;
 import com.company.myProject.config.fromKostia.EatingProbabilityConfig;
+import com.company.myProject.model.animal.AnimalFactory;
 import com.company.myProject.model.animal.AnimalProperties;
 import com.company.myProject.model.animal.AnimalType;
 import com.company.myProject.simulation.Simulation;
@@ -22,10 +23,13 @@ public class AppRunner {
         //населить остров животными
         for (AnimalType currentType : AnimalType.values()) {
             AnimalProperties currentProperties = currentType.getProperties();
+            AnimalFactory factory = new AnimalFactory();
+            factory.createAnimal(currentType, island.islandGrid[0][0]);
             //дальнейшая логика популяции острова
         }
+        System.out.println("lol");
     }
-
+/*
     private static void eatingDemo() { //это метод я написал чтоб продемонстрировать как достать из конфигурации конкретную вероятность
         List<EatingProbability> probabilityOfWolfEatingAllHerbivores =
                 EatingProbabilityConfig.eatingProbabilityMap.get(AnimalType.WOLF);
@@ -35,5 +39,5 @@ public class AppRunner {
                 .orElseThrow(() -> new RuntimeException("Could not find probability of wolf eating a sheep"));
         System.out.println(probabilityOfWolfEatingAllHerbivores);
         System.out.println(probabilityOfWolfEatingASheep);
-    }
+    }*/
 }

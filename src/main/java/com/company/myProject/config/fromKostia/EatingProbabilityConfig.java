@@ -18,17 +18,17 @@ public class EatingProbabilityConfig {
     }
 
     private static void createWolfProbabilities() {
-        List<EatingProbability> wolfProbabilities = new ArrayList<>();
+        /*List<EatingProbability> wolfProbabilities = new ArrayList<>();
         wolfProbabilities.add(new EatingProbability(AnimalType.GOAT, 40));
         wolfProbabilities.add(new EatingProbability(AnimalType.SHEEP, 60));
-        eatingProbabilityMap.put(AnimalType.WOLF, wolfProbabilities);
+        eatingProbabilityMap.put(AnimalType.WOLF, wolfProbabilities);*/
     }
 
     private static void createFoxProbabilities() {
-        List<EatingProbability> foxProbabilities = new ArrayList<>();
+        /*List<EatingProbability> foxProbabilities = new ArrayList<>();
         foxProbabilities.add(new EatingProbability(AnimalType.GOAT, 15));
         foxProbabilities.add(new EatingProbability(AnimalType.SHEEP, 30));
-        eatingProbabilityMap.put(AnimalType.FOX, foxProbabilities);
+        eatingProbabilityMap.put(AnimalType.FOX, foxProbabilities);*/
     }
 
 }

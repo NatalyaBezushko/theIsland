@@ -5,7 +5,7 @@ import static com.company.myProject.model.animal.herbivore.Sheep.SHEEP_PROPERTIE
 
 public enum AnimalType {
 
-    GOAT(GOAT_PROPERTIES), WOLF(), FOX(), SHEEP(SHEEP_PROPERTIES);
+    GOAT(GOAT_PROPERTIES),/* WOLF(), FOX(),*/ SHEEP(SHEEP_PROPERTIES);
 
     private AnimalProperties properties;
 

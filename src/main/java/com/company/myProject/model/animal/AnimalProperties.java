@@ -10,6 +10,7 @@ public class AnimalProperties {
     private final double dailyEnergyConsumption;
     private final int deathFromStarvingAfter;
     private final int maxAmountInCell;
+    // изначальное количество на острове. Сделай жто поле и используй во время создания и популяции острова
 
     public AnimalProperties(AnimalType animalType, double weight, int range, int maxLitterSize,
                             double maxStomachCapacity, double dailyEnergyConsumption, int deathFromStarvingAfter,
