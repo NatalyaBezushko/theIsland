@@ -61,9 +61,8 @@ public class Main {
 
         populateIsland(island);
 
-        for (Animal animal1 : Arrays.asList(wolf, goat)) {
-            animal1.getFood();
-        }
+        wolf.getFood();
+        goat.getFood();
 
         wolf.eat(animal);
         goat.eat(vegetation);

@@ -9,6 +9,7 @@ import static com.company.myProject.Animal.Goat.countYoungGoat;
 import static com.company.myProject.Animal.Goat.giveBirths;
 
 
+
 public abstract class Animal implements Runnable, Eatable {
 
 
@@ -188,6 +189,10 @@ public abstract class Animal implements Runnable, Eatable {
         daysWithoutFood = -1;
     }
 
+    private double getStomachCapacity() {
+        return getStomachCapacity();
+    }
+
 
     public synchronized double consumeAsFood(double required) {
         double consumed;
@@ -269,9 +274,6 @@ public abstract class Animal implements Runnable, Eatable {
         this.alive = alive;
     }
 
-    public double getStomachCapacity() {
-        return properties.stomachCapacity;
-    }
 
     public UUID getId() {
         return id;

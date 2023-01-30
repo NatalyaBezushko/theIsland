@@ -10,6 +10,11 @@ public class GoatProperties extends AnimalProperties{
 
     public GoatProperties(double weight, int range, double stomachCapacity, double dailyEnergyConsumption, int deathFromStarvingAfter, int maxAmauntInCell) {
         super(weight, range, stomachCapacity, dailyEnergyConsumption, deathFromStarvingAfter, maxAmauntInCell);
-        this.stomachCapacity = 3;
+        this.stomachCapacity = stomachCapacity;
+    }
+
+    @Override
+    public static double getStomachCapacity() {
+        return AnimalProperties.getStomachCapacity();
     }
 }

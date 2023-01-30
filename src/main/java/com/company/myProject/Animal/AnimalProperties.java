@@ -26,6 +26,11 @@ public abstract class AnimalProperties {
         this.maxAmountInCell = 10;
     }
 
+    public static double getStomachCapacity() {
+        return getStomachCapacity();
+    }
+
+
     public abstract Animal createAnimal();
 
     public double getWeight() {
@@ -36,9 +41,6 @@ public abstract class AnimalProperties {
         return range;
     }
 
-    public double getStomachCapacity() {
-        return stomachCapacity;
-    }
 
     public double getDailyEnergyConsumption() {
         return dailyEnergyConsumption;
