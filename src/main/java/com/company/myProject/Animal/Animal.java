@@ -177,7 +177,17 @@ public abstract class Animal implements Runnable, Eatable {
 
     abstract void getFood();
 
-    abstract void eat(Eatable eatable);
+    protected void eat(Eatable eatable) {
+        double consumed = eatable.consumeAsFood(getStomachCapacity());
+        currentStomachLevel = currentStomachLevel + consumed;
+        if (currentStomachLevel >= getStomachCapacity()) ;
+        {
+            currentStomachLevel = getStomachCapacity();
+
+        }
+        daysWithoutFood = -1;
+    }
+
 
     public synchronized double consumeAsFood(double required) {
         double consumed;

@@ -12,18 +12,6 @@ public class Fox extends Predator{
     }
 
     @Override
-    protected void eat(Eatable eatable) {
-        double consumed = eatable.consumeAsFood(getStomachCapacity());
-        currentStomachLevel = currentStomachLevel + consumed;
-        if (currentStomachLevel >= getStomachCapacity()) ;
-        {
-            currentStomachLevel = getStomachCapacity();
-
-        }
-        daysWithoutFood = -1;
-    }
-
-    @Override
     protected double getEatableMass() {
         return getAnimalProperties().getWeight() * 0.4;
     }
