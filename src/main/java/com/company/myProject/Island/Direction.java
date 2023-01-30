@@ -1,4 +1,4 @@
-package com.company.myProject.Animal;
+package com.company.myProject.Island;
 
 public enum Direction {
     UP, DOWN, LEFT, RIGHT;

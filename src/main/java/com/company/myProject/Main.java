@@ -1,7 +1,18 @@
-package com.company.myProject.Animal;
+/*
+package com.company.myProject;
+
+import com.company.myProject.Island.Cell;
+import com.company.myProject.Island.Island;
+import com.company.myProject.model.Vegetation;
+import com.company.myProject.animal.*;
+import com.company.myProject.model.animal.Animal;
+import com.company.myProject.model.animal.AnimalFactory;
+import com.company.myProject.model.animal.AnimalProperties;
+import com.company.myProject.model.animal.herbivore.Goat;
+import com.company.myProject.model.animal.predator.Fox;
+import com.company.myProject.model.animal.predator.Wolf;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -9,31 +20,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.company.myProject.Animal.AnimalType.*;
+import static com.company.myProject.model.animal.AnimalType.*;
 import static com.company.myProject.config.GameConfig.EATING_PROBABILITY_CONFIG;
 
 public class Main {
 
     private static AnimalFactory animalFactory = new AnimalFactory();
 
-    static Animal animal = new Animal() {
-
-        @Override
-        protected void getFood() {
-
-        }
-
-        @Override
-        protected void eat(Eatable eatable) {
-
-        }
-
-        @Override
-        protected double getEatableMass() {
-            return 0;
-        }
-    };
-
+    static Animal animal;
 
     static Animal wolf = new Wolf();
     static Animal goat = new Goat();
@@ -57,9 +51,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Island island = new Island(5, 3);
+        //Island island = new Island(5, 3);
+
+        Animal goat = new Goat();
 
         populateIsland(island);
+
+        goat.giveBirth();
 
         wolf.getFood();
         goat.getFood();
@@ -145,4 +143,4 @@ public class Main {
             }
         }
     }
-}
+}*/

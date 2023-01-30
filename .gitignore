@@ -1,6 +1,5 @@
-.dea,
-target,
-out,
-*.iml,
-Project exclude paths
-/out/
+/.idea/
+/target/
+/KM.iml
+/Progect The Island.iml
+`

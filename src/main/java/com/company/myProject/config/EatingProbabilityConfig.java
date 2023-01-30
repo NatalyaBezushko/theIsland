@@ -1,14 +1,12 @@
 package com.company.myProject.config;
 
-import com.company.myProject.Animal.Animal;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class EatingProbabilityConfig<Animal> {
     private List<EatingConfigRow> rows = new ArrayList<>();
 
-    public Double getHuntSuccessProbabilityFor(com.company.myProject.Animal.Animal predator, com.company.myProject.Animal.Animal food) {
+    public Double getHuntSuccessProbabilityFor(com.company.myProject.model.animal.Animal predator, com.company.myProject.model.animal.Animal food) {
         EatingConfigRow row = rows.stream()
             .filter(eatingConfigRow -> eatingConfigRow.getAnimalName().equals(predator))
             .findFirst()

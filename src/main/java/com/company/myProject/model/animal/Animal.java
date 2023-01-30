@@ -1,69 +1,50 @@
-package com.company.myProject.Animal;
+package com.company.myProject.model.animal;
 
+import com.company.myProject.model.Eatable;
+import com.company.myProject.Island.Cell;
+import com.company.myProject.Island.Direction;
+import com.company.myProject.Island.Island;
 
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.company.myProject.Animal.Goat.countYoungGoat;
-import static com.company.myProject.Animal.Goat.giveBirths;
 
+public abstract class Animal implements Eatable {
 
-
-public abstract class Animal implements Runnable, Eatable {
-
-
-    private AnimalProperties properties;
-
-    private static final int MOVE_DISTANCE = 3;
-
+    private final AnimalProperties properties;
     public double currentStomachLevel;
-
     public int daysWithoutFood;
-
-    private static int MAX_LITTER_SIZE;
-
     private boolean alive;
-
-
     private UUID id;
     private Island island;
-    private static Cell position;
+    private Cell position;
     private AtomicInteger movesCount;
 
-
-    public Animal(AnimalProperties properties, Island island) {
+    public Animal(AnimalProperties properties, Cell currentPosition) {
         this.properties = properties;
-        this.currentStomachLevel = properties.getStomachCapacity() / 2;
+        this.currentStomachLevel = properties.maxStomachCapacity / 2;
         this.id = UUID.randomUUID();
-        daysWithoutFood = -1;
+        this.daysWithoutFood = -1;
         this.alive = true;
-        this.island = island;
+        this.position = currentPosition;
+        this.island = Island.getInstance();
     }
 
-    public Animal() {
-
-    }
-
-    public Animal(AnimalProperties animal) {
-    }
-
-
-    public void run() {
+    public void run() { // переименуй в dailyRoutine
         System.out.println("Starts daily routine" + id);
         if(!alive) {
             System.out.println("is dead" + id);
         }
         move();
         getFood();
-        reproduce();
         System.out.println("Breed = " );
     }
 
     public void move() {
         System.out.printf("Animal [%s] started moving. Current position - %s %n", this, position);
         Random moveDecider = new Random();
-        for (int i = 0; i < MOVE_DISTANCE; i++) {
+        for (int i = 0; i < properties.getRange(); i++) {
             boolean moveDecision = moveDecider.nextBoolean();
 
             if (moveDecision) {
@@ -76,7 +57,7 @@ public abstract class Animal implements Runnable, Eatable {
         }
         System.out.println("Animal finished his moving turn!");
         System.out.println("Current position - " + position);
-        Main.movesCount.incrementAndGet();
+        movesCount.incrementAndGet();
     }
 
     private void moveToOtherCell() {
@@ -92,21 +73,20 @@ public abstract class Animal implements Runnable, Eatable {
 
     }
 
-
     private boolean directionValid(Direction direction) {
         System.out.println("Picking direction...");
         switch (direction) {
             case UP: {
-                return position.y - 1 > 0;
+                return position.getY() - 1 > 0;
             }
             case DOWN: {
-                return position.y + 1 < island.yDimension;
+                return position.getY() + 1 < island.yDimension;
             }
             case LEFT: {
-                return position.x - 1 > 0;
+                return position.getX() - 1 > 0;
             }
             case RIGHT: {
-                return position.x + 1 < island.xDimension;
+                return position.getX() + 1 < island.xDimension;
             }
             default:
                 throw new IllegalArgumentException();
@@ -120,23 +100,23 @@ public abstract class Animal implements Runnable, Eatable {
         int newY = -1;
         switch (direction) {
             case UP: {
-                newX = position.x;
-                newY = position.y - 1;
+                newX = position.getX();
+                newY = position.getY() - 1;
                 break;
             }
             case DOWN: {
-                newX = position.x;
-                newY = position.y + 1;
+                newX = position.getX();
+                newY = position.getY() + 1;
                 break;
             }
             case LEFT: {
-                newX = position.x - 1;
-                newY = position.y;
+                newX = position.getX() - 1;
+                newY = position.getY();
                 break;
             }
             case RIGHT: {
-                newX = position.x + 1;
-                newY = position.y;
+                newX = position.getX() + 1;
+                newY = position.getY();
             }
         }
         Cell newCell = island.islandGrid[newX][newY];
@@ -146,14 +126,6 @@ public abstract class Animal implements Runnable, Eatable {
         System.out.println("Position changed...");
 
 
-    }
-
-    public static Cell getPosition() {
-        return position;
-    }
-
-    public void setPosition(Cell position) {
-        this.position = position;
     }
 
     private void consumeEnergy(){
@@ -176,23 +148,16 @@ public abstract class Animal implements Runnable, Eatable {
         }
     }
 
-    abstract void getFood();
+    public abstract void getFood();
 
     protected void eat(Eatable eatable) {
-        double consumed = eatable.consumeAsFood(getStomachCapacity());
+        double consumed = eatable.consumeAsFood(properties.getMaxStomachCapacity());
         currentStomachLevel = currentStomachLevel + consumed;
-        if (currentStomachLevel >= getStomachCapacity()) ;
-        {
-            currentStomachLevel = getStomachCapacity();
-
+        if (currentStomachLevel >= properties.getMaxStomachCapacity()) {
+            currentStomachLevel = properties.getMaxStomachCapacity();
         }
         daysWithoutFood = -1;
     }
-
-    private double getStomachCapacity() {
-        return getStomachCapacity();
-    }
-
 
     public synchronized double consumeAsFood(double required) {
         double consumed;
@@ -207,41 +172,6 @@ public abstract class Animal implements Runnable, Eatable {
     }
 
     protected abstract double getEatableMass();
-
-    public void reproduce() {
-        Goat.giveBirths();
-    }
-
-
-//    public void giveBirths() {
-//
-//    }
-
-
-
-
-//    public Animal giveBirths(Animal animal) {
-//        int birth = breed();
-//        for (int i = 0; i < MAX_LITTER_SIZE; i++) {
-//            animal = new Animal() {
-//                @Override
-//                protected void getFood() {
-//
-//                }
-//
-//                @Override
-//                protected double getEatableMass() {
-//                    return 0;
-//                }
-//            };
-//            animal++;
-//            System.out.println("Breed" + animal);
-//            return countYoungGoat;
-//        }
-//        return animal;
-//    }
-
-
 
     @Override
     public boolean equals(Object o) {
@@ -274,11 +204,11 @@ public abstract class Animal implements Runnable, Eatable {
         this.alive = alive;
     }
 
-
     public UUID getId() {
         return id;
     }
 
-    public void add(Goat goat) {
+    public Cell getPosition() {
+        return this.position;
     }
 }

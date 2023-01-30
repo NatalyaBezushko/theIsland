@@ -1,4 +1,4 @@
-package com.company.myProject.Animal;
+package com.company.myProject.model;
 
 public interface Eatable {
     double consumeAsFood(double required);

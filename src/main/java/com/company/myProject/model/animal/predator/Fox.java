@@ -1,14 +1,12 @@
-package com.company.myProject.Animal;
+package com.company.myProject.model.animal.predator;
 
 
+import com.company.myProject.Island.Cell;
+import com.company.myProject.model.animal.AnimalProperties;
 
-public class Fox extends Predator{
+public class Fox extends Predator {
     public Fox(Cell properties) {
         super(properties);
-    }
-
-    public Fox() {
-
     }
 
     @Override
