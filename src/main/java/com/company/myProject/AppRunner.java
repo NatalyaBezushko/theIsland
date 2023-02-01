@@ -22,8 +22,7 @@ public class AppRunner {
 
     AnimalFactory factory = new AnimalFactory();
     private static final int MAX_DEFAULT_ANIMAL_COUNT = 200;
-    Cell cell;
-
+    List<Animal> animalList;
 
     public static void main(String[] args) {
         prepareSimulation(); //инициализируем конфигурации, создание острова, населяем остров, садим растения
@@ -37,10 +36,15 @@ public class AppRunner {
         //населить остров животными
         for (AnimalType currentType : AnimalType.values()) {
             AnimalProperties currentProperties = currentType.getProperties();
+            Random cellPopulationPicker = new Random();
+            int animalCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
             for (int i = 0; i < island.xDimension; i++) {
                 for (int j = 0; j < island.yDimension; j++) {
-
                     factory.createAnimal(currentType, island.islandGrid[i][j]);
+                    factory.createAnimal(GOAT, island.islandGrid[i][j]);
+                    factory.createAnimal(SHEEP, island.islandGrid[i][j]);
+                    factory.createAnimal(WOLF, island.islandGrid[i][j]);
+                    factory.createAnimal(FOX, island.islandGrid[i][j]);
                 }
             }
         }
@@ -49,24 +53,22 @@ public class AppRunner {
     //дальнейшая логика популяции острова
 
     private void populateCell(Cell cell, Island island) {
-        Random cellPopulationPicker = new Random();
-        int animalCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
 
-        for (int i = 0; i < animalCount; i++) {
-            factory.createAnimal(GOAT, cell);
-            factory.createAnimal(SHEEP, cell);
-            factory.createAnimal(WOLF, cell);
-            factory.createAnimal(FOX, cell);
-            Goat.position(cell);
-            cell.addAnimal(goat, cell);
-            animalList.add(goat);
-        }
-        System.out.printf("Cell %s populated with %s animals%n", cell, animalCount);
+
+        for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
+                Goat goat = new Goat(cell);
+                goat.setPosition(cell);
+                cell.addAnimal(goat);
+                animalList.add(new Goat(cell));
+            }
+        System.out.printf("Cell %s populated with %s animals%n", cell);
         System.out.println("Island is populated");
+        }
+
     }
 
 
-}
+
 /*
     private static void eatingDemo() { //это метод я написал чтоб продемонстрировать как достать из конфигурации конкретную вероятность
         List<EatingProbability> probabilityOfWolfEatingAllHerbivores =
