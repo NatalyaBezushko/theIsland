@@ -9,11 +9,14 @@ import java.util.Random;
 public class Goat extends Herbivorous {
 
     //создай подобные статические константы для других видов животных пярмо внутри классов других животных, как здесь
-    public static final AnimalProperties GOAT_PROPERTIES = new AnimalProperties(AnimalType.GOAT, 50, 3, 4, 20,
-            5, 5, 150);
+    public static final AnimalProperties GOAT_PROPERTIES = new AnimalProperties(AnimalType.GOAT, 60, 3, 4, 10,
+            5, 5, 140);
 
     public Goat(Cell currentPosition) {
         super(GOAT_PROPERTIES, currentPosition);
+    }
+
+    public static void position(Cell cell) {
     }
 
     @Override

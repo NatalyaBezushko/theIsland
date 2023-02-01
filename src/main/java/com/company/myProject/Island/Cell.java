@@ -14,7 +14,7 @@ public class Cell {
 
     public Vegetation vegetation;
 
-    List<Animal> animalList;
+    List<Animal> animalList = new ArrayList<>();
 
     public Cell(int x, int y) {
         this.x = x;

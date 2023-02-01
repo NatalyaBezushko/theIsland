@@ -27,16 +27,16 @@ public class AnimalFactory {
                 position.addAnimal(animal);
                 sheepCount++;
                 break;
-            /*case WOLF:
+            case WOLF:
                 animal = new Wolf(position);
                 wolfCount++;
                 break;
             case FOX:
                 animal = new Fox(position);
                 foxCount++;
-                break;*/
+                break;
         }
-        System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount).toString());
+        System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount + "Sheeps = " + sheepCount).toString());
         return animal;
     }
 }

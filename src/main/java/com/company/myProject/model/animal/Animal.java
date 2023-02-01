@@ -5,6 +5,8 @@ import com.company.myProject.Island.Cell;
 import com.company.myProject.Island.Direction;
 import com.company.myProject.Island.Island;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -21,6 +23,7 @@ public abstract class Animal implements Eatable {
     private Cell position;
     private AtomicInteger movesCount;
 
+
     public Animal(AnimalProperties properties, Cell currentPosition) {
         this.properties = properties;
         this.currentStomachLevel = properties.maxStomachCapacity / 2;
@@ -31,7 +34,7 @@ public abstract class Animal implements Eatable {
         this.island = Island.getInstance();
     }
 
-    public void run() { // переименуй в dailyRoutine
+    public void dailyRoutine() {
         System.out.println("Starts daily routine" + id);
         if(!alive) {
             System.out.println("is dead" + id);
@@ -210,5 +213,9 @@ public abstract class Animal implements Eatable {
 
     public Cell getPosition() {
         return this.position;
+    }
+
+    public void setPosition(Cell position) {
+        this.position = position;
     }
 }

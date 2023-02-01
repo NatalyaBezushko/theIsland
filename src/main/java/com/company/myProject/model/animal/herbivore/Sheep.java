@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class Sheep extends Herbivorous {
 
-    public static final AnimalProperties SHEEP_PROPERTIES = new AnimalProperties(AnimalType.SHEEP, 50, 3, 4, 20,
-            5, 5, 150);
+    public static final AnimalProperties SHEEP_PROPERTIES = new AnimalProperties(AnimalType.SHEEP, 70, 3, 4, 10,
+            5, 5, 140);
 
     public Sheep(Cell currentPosition) {
         super(SHEEP_PROPERTIES, currentPosition);
