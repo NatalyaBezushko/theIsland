@@ -2,32 +2,30 @@ package com.company.myProject;
 
 import com.company.myProject.Island.Cell;
 import com.company.myProject.Island.Island;
-import com.company.myProject.config.fromKostia.EatingProbability;
-import com.company.myProject.config.fromKostia.EatingProbabilityConfig;
-import com.company.myProject.model.animal.Animal;
 import com.company.myProject.model.animal.AnimalFactory;
 import com.company.myProject.model.animal.AnimalProperties;
 import com.company.myProject.model.animal.AnimalType;
-import com.company.myProject.model.animal.herbivore.Goat;
 import com.company.myProject.simulation.Simulation;
+import com.sun.tools.javac.Main;
 
-import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static com.company.myProject.model.animal.AnimalType.*;
-import static com.company.myProject.model.animal.herbivore.Goat.GOAT_PROPERTIES;
 
 public class AppRunner {
 
     AnimalFactory factory = new AnimalFactory();
     private static final int MAX_DEFAULT_ANIMAL_COUNT = 200;
-    List<Animal> animalList;
+
+    private static List<AnimalFactory> allAnimals = new ArrayList<AnimalFactory>();
 
     public static void main(String[] args) {
         prepareSimulation(); //инициализируем конфигурации, создание острова, населяем остров, садим растения
         Simulation simulation = new Simulation();
         simulation.runSimulation();
+        prepareSimulation();
+        AppRunner appRunner = new AppRunner();
+        populateCell();
     }
 
     private static void prepareSimulation() {
@@ -36,15 +34,10 @@ public class AppRunner {
         //населить остров животными
         for (AnimalType currentType : AnimalType.values()) {
             AnimalProperties currentProperties = currentType.getProperties();
-            Random cellPopulationPicker = new Random();
-            int animalCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
             for (int i = 0; i < island.xDimension; i++) {
                 for (int j = 0; j < island.yDimension; j++) {
                     factory.createAnimal(currentType, island.islandGrid[i][j]);
-                    factory.createAnimal(GOAT, island.islandGrid[i][j]);
-                    factory.createAnimal(SHEEP, island.islandGrid[i][j]);
-                    factory.createAnimal(WOLF, island.islandGrid[i][j]);
-                    factory.createAnimal(FOX, island.islandGrid[i][j]);
+
                 }
             }
         }
@@ -52,14 +45,14 @@ public class AppRunner {
 
     //дальнейшая логика популяции острова
 
-    private void populateCell(Cell cell, Island island) {
-
-
+    public void populateCell(Cell cell, Island island) {
+        Random cellPopulationPicker = new Random();
+        int animalCount = cellPopulationPicker.nextInt(MAX_DEFAULT_ANIMAL_COUNT);
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
-                Goat goat = new Goat(cell);
-                goat.setPosition(cell);
-                cell.addAnimal(goat);
-                animalList.add(new Goat(cell));
+            AnimalFactory factory = new AnimalFactory();
+            factory.setPosition(cell);
+            cell.addAnimal(factory);
+            allAnimals.add(factory);
             }
         System.out.printf("Cell %s populated with %s animals%n", cell);
         System.out.println("Island is populated");

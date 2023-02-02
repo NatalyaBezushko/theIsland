@@ -19,12 +19,10 @@ public class AnimalFactory {
         switch (animalType) {
             case GOAT:
                 animal = new Goat(position);
-                position.addAnimal(animal);
                 goatCount++;
                 break;
             case SHEEP:
                 animal = new Sheep(position);
-                position.addAnimal(animal);
                 sheepCount++;
                 break;
             case WOLF:
@@ -38,6 +36,9 @@ public class AnimalFactory {
         }
         System.out.println(("Goats = " + goatCount + "Wolfs = " + wolfCount + "Foxes = " + foxCount + "Sheeps = " + sheepCount).toString());
         return animal;
+    }
+
+    public void setPosition(Cell cell) {
     }
 }
 

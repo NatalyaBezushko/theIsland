@@ -2,6 +2,7 @@ package com.company.myProject.Island;
 
 import com.company.myProject.model.animal.Animal;
 import com.company.myProject.model.Vegetation;
+import com.company.myProject.model.animal.AnimalFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Cell {
 
     public Vegetation vegetation;
 
-    List<Animal> animalList = new ArrayList<>();
+    public List<Animal> animalList = new ArrayList<>();
 
     public Cell(int x, int y) {
         this.x = x;
