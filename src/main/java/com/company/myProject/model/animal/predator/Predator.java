@@ -2,7 +2,6 @@ package com.company.myProject.model.animal.predator;
 
 
 import com.company.myProject.Island.Cell;
-import com.company.myProject.model.animal.Animal;
 import com.company.myProject.model.animal.AnimalProperties;
 import com.company.myProject.model.animal.herbivore.Herbivorous;
 
@@ -20,7 +19,7 @@ public abstract class Predator extends com.company.myProject.model.animal.Animal
     public void getFood() {
         System.out.println("Predator started getting food" + getId());
         Cell position = this.getPosition();
-        List<Animal> animalList = position.getAnimalList().stream()
+        List<Object> animalList = position.getAnimalList().stream()
                 .filter(animal -> animal instanceof Herbivorous)
                 .collect(Collectors.toList());
         if (animalList.size() <= 1) {

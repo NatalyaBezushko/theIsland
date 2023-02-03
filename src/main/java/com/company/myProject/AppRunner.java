@@ -6,26 +6,29 @@ import com.company.myProject.model.animal.AnimalFactory;
 import com.company.myProject.model.animal.AnimalProperties;
 import com.company.myProject.model.animal.AnimalType;
 import com.company.myProject.simulation.Simulation;
-import com.sun.tools.javac.Main;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.company.myProject.model.animal.AnimalType.*;
+
 public class AppRunner {
 
-    AnimalFactory factory = new AnimalFactory();
     private static final int MAX_DEFAULT_ANIMAL_COUNT = 200;
 
     private static List<AnimalFactory> allAnimals = new ArrayList<AnimalFactory>();
+
+    AnimalFactory factory = new AnimalFactory();
 
     public static void main(String[] args) {
         prepareSimulation(); //инициализируем конфигурации, создание острова, населяем остров, садим растения
         Simulation simulation = new Simulation();
         simulation.runSimulation();
-        prepareSimulation();
         AppRunner appRunner = new AppRunner();
-        populateCell();
+        appRunner.populateCell();
+        prepareSimulation();
+
     }
 
     private static void prepareSimulation() {
@@ -37,7 +40,6 @@ public class AppRunner {
             for (int i = 0; i < island.xDimension; i++) {
                 for (int j = 0; j < island.yDimension; j++) {
                     factory.createAnimal(currentType, island.islandGrid[i][j]);
-
                 }
             }
         }
@@ -51,7 +53,7 @@ public class AppRunner {
         for (int i = 0; i < MAX_DEFAULT_ANIMAL_COUNT; i++) {
             AnimalFactory factory = new AnimalFactory();
             factory.setPosition(cell);
-            cell.addAnimal(factory);
+            cell.addAnimal(cellPopulationPicker);
             allAnimals.add(factory);
             }
         System.out.printf("Cell %s populated with %s animals%n", cell);

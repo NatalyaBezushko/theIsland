@@ -15,12 +15,12 @@ public class Cell {
 
     public Vegetation vegetation;
 
-    public List<Animal> animalList = new ArrayList<>();
+    public List<AnimalFactory> animalList = new ArrayList<AnimalFactory>();
 
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
-        this.animalList = new ArrayList<>();
+        this.animalList = new ArrayList<AnimalFactory>();
         this.vegetation = new Vegetation(new Random().nextInt(Vegetation.MAX_VEGETATION_LEVEL));
     }
 
@@ -28,7 +28,7 @@ public class Cell {
         return vegetation;
     }
 
-    public synchronized void addAnimal(Animal animal) {
+    public synchronized void addAnimal(Random animal) {
         animalList.add(animal);
         Island.getInstance().animalList.add(animal);
     }
@@ -42,7 +42,7 @@ public class Cell {
         this.vegetation = vegetation;
     }
 
-    public List<Animal> getAnimalList() {
+    public List<AnimalFactory> getAnimalList() {
         return animalList;
     }
 

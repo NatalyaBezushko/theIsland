@@ -2,7 +2,7 @@ package com.company.myProject.Island;
 
 
 import com.company.myProject.config.fromKostia.IslandConfig;
-import com.company.myProject.model.animal.Animal;
+import com.company.myProject.model.animal.AnimalFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Island {
     public int yDimension;
 
     public Cell[][] islandGrid;
-    List <Animal> animalList = new ArrayList<>();
+    List<AnimalFactory> animalList = new ArrayList<com.company.myProject.model.animal.AnimalFactory>();
 
     private Island(int xDimension, int yDimension) {
         this.xDimension = xDimension;
